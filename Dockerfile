@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 
 # Add the backup script to the container
 COPY mysql-docker-backup.sh /usr/local/bin/mysql-docker-backup.sh
-RUN chmod +x /usr/local/bin/mysql-backup.sh
+RUN chmod +x /usr/local/bin/mysql-docker-backup.sh
 
 # Schedule the backup script in cron
 RUN echo "0 2 * * * /usr/local/bin/mysql-backup.sh >> /var/log/cron.log 2>&1" > /etc/cron.d/mysql-docker-backup \
